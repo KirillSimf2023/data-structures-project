@@ -19,6 +19,7 @@ class Stack:
     def __init__(self):
         """Конструктор класса Stack"""
         self.my_stack = []
+        self.top = None
 
 
     def __repr__(self):
@@ -31,13 +32,16 @@ class Stack:
 
         :param data: данные, которые будут добавлены на вершину стека
         """
-        if len(self.my_stack) == 0:
-            new_Node = Node(data, None)
-        else:
-            new_Node = Node(data, None)
-            self.my_stack[-1].next_node = new_Node
-        self.my_stack.append(new_Node)
-        self.top = new_Node
+        # if len(self.my_stack) == 0:
+        #     new_Node = Node(data, None)
+        # else:
+        #     new_Node = Node(data, None)
+        #     self.my_stack[-1].next_node = new_Node
+        # self.my_stack.append(new_Node)
+        # self.top = new_Node
+        next_node = self.top
+        new_top = Node(data, next_node)
+        self.top = new_top
 
 
     def pop(self):
@@ -46,19 +50,24 @@ class Stack:
 
         :return: данные удаленного элемента
         """
-        if len(self.my_stack)==0:
+        # if len(self.my_stack)==0:
+        #     return None
+        # else:
+        #     result_Node = self.my_stack.pop(-1)
+        #     len_stack = len(self.my_stack)
+        #     if len_stack == 1:
+        #         self.my_stack[0].next_node = None
+        #         self.top = self.my_stack[0]
+        #     elif len_stack > 1:
+        #         self.top = self.my_stack[-1]
+        #         self.my_stack[-1].next_node = None
+        #     elif len_stack == 0:
+        #         self.top = None
+        #     return result_Node.data
+        if self.top is None:
             return None
-        else:
-            result_Node = self.my_stack.pop(-1)
-            len_stack = len(self.my_stack)
-            if len_stack == 1:
-                self.my_stack[0].next_node = None
-                self.top = self.my_stack[0]
-            elif len_stack > 1:
-                self.top = self.my_stack[-1]
-                self.my_stack[-1].next_node = None
-            elif len_stack == 0:
-                self.top = None
-            return result_Node.data
+        removed_data = self.top.data
+        self.top = self.top.next_node
+        return removed_data
 
 

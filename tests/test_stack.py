@@ -21,12 +21,11 @@ class TestStack(unittest.TestCase):
     def test_push(self):
         stack = Stack()
         stack.push(5)
-        self.assertEqual(stack.my_stack[-1].data, 5)
-        self.assertEqual(stack.my_stack[-1].next_node, None)
+        self.assertEqual(stack.top.data, 5)
+        self.assertEqual(stack.top.next_node, None)
         stack.push("a")
-        self.assertEqual(len(stack.my_stack), 2)
-        self.assertEqual(stack.my_stack[-1].data, "a")
-        self.assertEqual(stack.my_stack[-1].next_node, stack.my_stack[0])
+        self.assertEqual(stack.top.data, "a")
+
 
     def test_pop(self):
         stack = Stack()
