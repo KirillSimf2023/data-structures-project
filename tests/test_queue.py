@@ -27,4 +27,14 @@ class TestNode(unittest.TestCase):
             self.assertEqual(queue.head.next_node, None)
             queue.enqueue('a')
             self.assertEqual(queue.head.next_node.data, 'a')
-            self.assertEqual(queue.taildata, 'a')
+            self.assertEqual(queue.tail.data, 'a')
+
+        def test_str(self):
+            self.assertEqual(str(Queue()), '')
+            queue = Queue()
+            queue.enqueue('data1')
+            self.assertEqual(str(queue), 'data1')
+            queue.enqueue('data2')
+            self.assertEqual(str(queue), 'data1\ndata2')
+            queue.enqueue('data3')
+            self.assertEqual(str(queue), 'data1\ndata2\ndata3')

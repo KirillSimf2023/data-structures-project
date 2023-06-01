@@ -25,9 +25,7 @@ class Queue:
 
         :param data: данные, которые будут добавлены в очередь
         """
-        # next_node = self.top
-        # new_top = Node(data, next_node)
-        # self.top = new_top
+
         if self.head == None:
             new_node = Node(data, None)
             self.head = new_node
@@ -36,8 +34,6 @@ class Queue:
             new_node = Node(data, None)
             self.tail.next_node = new_node
             self.tail = new_node
-
-
 
 
     def dequeue(self):
