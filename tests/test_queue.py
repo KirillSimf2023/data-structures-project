@@ -19,6 +19,7 @@ class TestNode(unittest.TestCase):
             self.assertEqual(queue.head, None)
             self.assertEqual(queue.tail, None)
 
+
         def test_enqueue(self):
             queue = Queue()
             queue.enqueue(5)
