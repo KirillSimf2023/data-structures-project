@@ -71,3 +71,7 @@ class Stack:
         return removed_data
 
 
+    def __str__(self):
+        return f'{self.__class__.__name__}'
+
+
