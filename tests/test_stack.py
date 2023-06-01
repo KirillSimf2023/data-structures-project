@@ -49,6 +49,12 @@ class TestStack(unittest.TestCase):
         # Проверяем что остался всего 1 элемент с данными data1
         self.assertEqual(stack.top.data, 'data1')
 
+    def test_str(self):
+        stack = Stack()
+        stack.push('data1')
+        self.assertEqual(str(stack), 'Stack')
+        self.assertEqual(str(Stack()), 'Stack')
+
 
 
 
