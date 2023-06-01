@@ -19,5 +19,6 @@ if __name__ == '__main__':
     # теперь последний элемента содержит данные data1
     assert stack.top.data == 'data1'
 
+
     # данные удаленного элемента
     assert data == 'data2'

@@ -13,8 +13,6 @@ class TestNode(unittest.TestCase):
         self.assertEqual(data_2.next_node.data, 5)
 
 
-
-
 class TestStack(unittest.TestCase):
     def test_init(self):
         stack = Stack()
@@ -29,4 +27,31 @@ class TestStack(unittest.TestCase):
         self.assertEqual(len(stack.my_stack), 2)
         self.assertEqual(stack.my_stack[-1].data, "a")
         self.assertEqual(stack.my_stack[-1].next_node, stack.my_stack[0])
+
+    def test_pop(self):
+        stack = Stack()
+        stack.push('data1')
+        data = stack.pop()
+        #Проверяем удаленный элемент
+        self.assertEqual(data, 'data1')
+        # Проверяем что stack пустой, то есть в его вершине ничего нет
+        self.assertEqual(stack.top, None)
+        # Проверяем что stack пустой, при команде pop вернет None
+        self.assertEqual(stack.pop(), None)
+
+        stack.push('data1')
+        stack.push('data2')
+        stack.push('data3')
+        data = stack.pop()
+        self.assertEqual(data, 'data3')
+        data = stack.pop()
+        self.assertEqual(data, 'data2')
+
+        # Проверяем что остался всего 1 элемент с данными data1
+        self.assertEqual(stack.top.data, 'data1')
+
+
+
+
+
 
