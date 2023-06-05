@@ -38,3 +38,24 @@ class TestNode(unittest.TestCase):
             self.assertEqual(str(queue), 'data1\ndata2')
             queue.enqueue('data3')
             self.assertEqual(str(queue), 'data1\ndata2\ndata3')
+
+        def test_dequeue(self):
+            # Создаем пустую очередь
+            queue = Queue()
+            # Добавляем данных в очередь
+            queue.enqueue('data1')
+            queue.enqueue('data2')
+            queue.enqueue('data3')
+
+            self.assertEqual(queue.dequeue(), 'data1')
+            self.assertEqual(queue.dequeue(), 'data2')
+            self.assertEqual(queue.dequeue(), 'data3')
+            self.assertEqual(queue.dequeue(), None)
+            queue.enqueue('data4')
+            self.assertEqual(queue.dequeue(), 'data4')
+            self.assertEqual(queue.dequeue(), None)
+
+
+
+
+
